@@ -22,4 +22,8 @@ jobs:
         run: ./gradlew build
       - name: List build output
         run: |
-          ls -la $HOME
+          pwd
+          find .
+      - name: List github workspace
+        run: |
+          echo ${GITHUB_WORKSPACE}
