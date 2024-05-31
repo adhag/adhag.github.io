@@ -22,8 +22,7 @@ jobs:
         run: ./gradlew build
       - name: List build output
         run: |
-          pwd
-          find .
-      - name: List github workspace
+          find ./composeApp/build/dist/wasmJs/productionExecutable
+      - name: List github workspace directory
         run: |
           echo ${GITHUB_WORKSPACE}
