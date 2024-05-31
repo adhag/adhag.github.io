@@ -26,3 +26,7 @@ jobs:
       - name: List github workspace directory
         run: |
           echo ${GITHUB_WORKSPACE}
+      - name: Upload Pages Artifact
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: ./composeApp/build/dist/wasmJs/productionExecutable
