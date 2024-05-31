@@ -1,4 +1,4 @@
-name: Build Gradle project
+name: Build and Deploy
 
 on:
   push:
@@ -13,23 +13,29 @@ jobs:
     steps:
       - name: Checkout project sources
         uses: actions/checkout@v4
+
       - name: Set up Java
         uses: actions/setup-java@v2
         with:
           java-version: 17
           distribution: "temurin"
+
       - name: Setup Gradle
         uses: gradle/gradle-build-action@v2
+
       - name: Change wrapper permissions
         run: chmod +x ./gradlew
+
       - name: Run build with Gradle Wrapper
         run: ./gradlew build
+
 #      - name: List build directories
 #        run: |
 #          echo ${GITHUB_WORKSPACE}
 #          find ./composeApp/build/dist/wasmJs/productionExecutable
+
       - name: Upload Pages Artifact
-        uses: actions/upload-pages-artifact@v2
+        uses: actions/upload-pages-artifact@v4
         with:
           path: ./composeApp/build/dist/wasmJs/productionExecutable
 
