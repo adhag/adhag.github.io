@@ -35,7 +35,7 @@ jobs:
 #          find ./composeApp/build/dist/wasmJs/productionExecutable
 
       - name: Upload Pages Artifact
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-pages-artifact@v3
         with:
           path: ./composeApp/build/dist/wasmJs/productionExecutable
 
